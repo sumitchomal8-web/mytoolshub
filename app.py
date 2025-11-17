@@ -34,6 +34,12 @@ POPPLER_PATH = r"C:\poppler\poppler-25.11.0\Library\bin"   # your poppler path
 def ads():
     return send_file("static/ads.txt")
 
+#sitemap route
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_file("static/sitemap.xml")
+
+
 # ---------------- HOME ----------------
 @app.route("/")
 def home():
