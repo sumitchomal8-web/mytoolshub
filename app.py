@@ -39,6 +39,10 @@ def ads():
 def sitemap():
     return send_file("static/sitemap.xml")
 
+#robots route
+@app.route('/robots.txt')
+def robots():
+    return send_file("static/robots.txt")
 
 # ---------------- HOME ----------------
 @app.route("/")
