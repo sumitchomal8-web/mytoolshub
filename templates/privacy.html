@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="max-w-4xl mx-auto bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-8 rounded-xl shadow-md">
+    
+    <h1 class="text-3xl font-bold mb-4 text-red-500">Privacy Policy</h1>
+
+    <p class="mb-4">Last updated: {{ today }}</p>
+
+    <p class="mb-4">
+        Welcome to <strong>MyToolsHub</strong>. Your privacy is extremely important to us.
+        This Privacy Policy explains how we collect, use, and protect your information.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">1. Files You Upload</h2>
+    <p class="mb-4">
+        MyToolsHub processes your files (PDF, JPG, etc.) **locally on the server** for conversion or compression.  
+        We do <strong>not store, access, or share</strong> your files after processing.
+    </p>
+    <p class="mb-4">All uploaded files are automatically deleted after processing.</p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Personal Data</h2>
+    <p class="mb-4">
+        We do not collect personal information such as your name, phone number, or address.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">3. Cookies & AdSense</h2>
+    <p class="mb-4">
+        MyToolsHub uses <strong>Google AdSense</strong> for monetization.  
+        Google may use cookies to:
+    </p>
+
+    <ul class="list-disc ml-6 mb-4">
+        <li>Serve personalized ads</li>
+        <li>Measure ad performance</li>
+        <li>Prevent fraud</li>
+    </ul>
+
+    <p class="mb-4">
+        You can opt out of personalized advertising by visiting:  
+        <a href="https://www.google.com/settings/ads" class="text-red-500">Google Ads Settings</a>.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Third-Party Services</h2>
+    <p class="mb-4">
+        We may use third-party analytics and ad services that collect non-personal data such as:
+    </p>
+
+    <ul class="list-disc ml-6 mb-4">
+        <li>Device information</li>
+        <li>Browser type</li>
+        <li>General location</li>
+        <li>Usage statistics</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Security</h2>
+    <p class="mb-4">
+        We take file security seriously.  
+        All processing happens inside temporary isolated environments and files are removed automatically.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">6. Updates</h2>
+    <p class="mb-4">
+        We may update this Privacy Policy periodically.  
+        Continued use of MyToolsHub means you agree to the latest version.
+    </p>
+
+</div>
+
+{% endblock %}

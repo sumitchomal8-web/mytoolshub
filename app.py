@@ -7,6 +7,8 @@ import uuid
 import fitz  # PyMuPDF
 import time
 import shutil
+from datetime import date
+
 
 def cleanup_uploads(max_age_minutes=30):
     now = time.time()
@@ -43,6 +45,12 @@ def sitemap():
 @app.route('/robots.txt')
 def robots():
     return send_file("static/robots.txt")
+
+#privacy route
+@app.route("/privacy-policy")
+def privacy_policy():
+    return render_template("privacy.html", today=date.today())
+
 
 # ---------------- HOME ----------------
 @app.route("/")
