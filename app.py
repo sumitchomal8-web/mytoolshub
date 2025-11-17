@@ -29,7 +29,10 @@ UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 POPPLER_PATH = r"C:\poppler\poppler-25.11.0\Library\bin"   # your poppler path
-
+#ads route
+@app.route('/ads.txt')
+def ads():
+    return send_file("static/ads.txt")
 
 # ---------------- HOME ----------------
 @app.route("/")
