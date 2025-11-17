@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ title if title else "MyToolsHub – Free Online PDF Tools" }}</title>
+
+    <!-- Primary SEO -->
+    <meta name="description" content="MyToolsHub offers free online PDF tools — merge, compress, split, convert PDF to JPG, JPG to PDF, fast and secure." />
+    <meta name="keywords" content="pdf tools, pdf merge, pdf compress, pdf split, pdf to jpg, jpg to pdf, online pdf free" />
+    <meta name="author" content="MyToolsHub" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mytoolshub.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+    <!-- Open Graph (OG) Social Share -->
+    <meta property="og:title" content="MyToolsHub – Free Online PDF Tools" />
+    <meta property="og:description" content="Fast, simple and free PDF tools — merge, compress, split and convert files instantly." />
+    <meta property="og:image" content="/static/og-image.png" />
+    <meta property="og:url" content="https://mytoolshub.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyToolsHub" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MyToolsHub – Free Online PDF Tools" />
+    <meta name="twitter:description" content="Free PDF tools to merge, compress, split and convert PDFs easily." />
+    <meta name="twitter:image" content="/static/og-image.png" />
+
+    <!-- Theme for mobile browsers -->
+    <meta name="theme-color" content="#EF4444">
+
+    <!-- Mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = { darkMode: "class" };
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- GOOGLE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-REPLACE_WITH_YOUR_ID"
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-all duration-300">
+
+    <!-- NAVBAR -->
+    <header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto flex justify-between items-center px-4 py-4">
+
+                <!-- LOGO -->
+                <a href="/" class="flex items-center gap-2 group">
+                    <svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="transition-transform duration-200 group-hover:scale-105">
+                        <circle cx="24" cy="24" r="22" fill="#EF4444"/>
+                        <path d="M16 20L24 16L32 20L24 24L16 20Z" fill="white"/>
+                        <path d="M16 26L24 22L32 26L24 30L16 26Z" fill="white" opacity="0.9"/>
+                        <path d="M16 32L24 28L32 32L24 36L16 32Z" fill="white" opacity="0.8"/>
+                    </svg>
+
+                    <span class="text-2xl font-bold text-gray-900 dark:text-white">
+                        MyToolsHub
+                    </span>
+                </a>
+
+                <!-- NAV LINKS -->
+                <nav class="flex items-center gap-6 text-lg">
+
+                    <!-- Link model -->
+                    <a href="/" class="nav-link {% if request.path == '/' %}active-link{% endif %}">Home</a>
+                    <a href="/pdf-merger" class="nav-link {% if request.path == '/pdf-merger' %}active-link{% endif %}">PDF Merge</a>
+                    <a href="/pdf-compress" class="nav-link {% if request.path == '/pdf-compress' %}active-link{% endif %}">PDF Compress</a>
+                    <a href="/pdf-split" class="nav-link {% if request.path == '/pdf-split' %}active-link{% endif %}">PDF Split</a>
+                    <a href="/pdf-to-jpg" class="nav-link {% if request.path == '/pdf-to-jpg' %}active-link{% endif %}">PDF to JPG</a>
+                    <a href="/jpg-to-pdf" class="nav-link {% if request.path == '/jpg-to-pdf' %}active-link{% endif %}">JPG to PDF</a>
+
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle"
+                        class="ml-4 text-xl p-2 rounded-lg bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-yellow-300 transition">
+                        <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    </button>
+
+                </nav>
+            </div>
+        </header>
+
+        <!-- NAV CSS -->
+        <style>
+            .nav-link {
+                position: relative;
+                color: #4b5563;
+                transition: color 0.2s;
+            }
+
+            .dark .nav-link {
+                color: #d1d5db;
+            }
+
+            .nav-link:hover {
+                color: #EF4444;
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -4px;
+                width: 0;
+                height: 2px;
+                background-color: #EF4444;
+                border-radius: 2px;
+                transition: width 0.3s;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            /* ACTIVE STATE — RED UNDERLINE */
+            .active-link {
+                color: #EF4444 !important;
+                font-weight: 600;
+            }
+
+            .active-link::after {
+                width: 100% !important;
+            }
+
+            .tool-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+            }
+            .tool-card {
+                transition: all 0.25s ease;
+            }
+        </style>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-4 py-10">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-20 border-t border-gray-200 dark:border-gray-800 py-10 bg-white dark:bg-gray-900">
+
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-10">
+
+            <!-- Left: Logo + About -->
+            <div class="flex flex-col gap-3 max-w-sm">
+
+                <div class="flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="22" fill="#EF4444"/>
+                        <path d="M16 20L24 16L32 20L24 24L16 20Z" fill="white"/>
+                        <path d="M16 26L24 22L32 26L24 30L16 26Z" fill="white" opacity="0.9"/>
+                        <path d="M16 32L24 28L32 32L24 36L16 32Z" fill="white" opacity="0.8"/>
+                    </svg>
+
+                    <span class="text-2xl font-bold text-gray-900 dark:text-white">
+                        MyToolsHub
+                    </span>
+                </div>
+
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    Fast, simple and free online PDF tools.  
+                    Convert, merge, compress and process your documents securely.
+                </p>
+            </div>
+
+            <!-- Center: Quick Links -->
+            <div>
+                <h3 class="text-gray-900 dark:text-white font-semibold mb-3">Quick Links</h3>
+                <ul class="flex flex-col gap-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <li><a href="/" class="hover:text-red-500 transition">Home</a></li>
+                    <li><a href="/pdf-merger" class="hover:text-red-500 transition">PDF Merge</a></li>
+                    <li><a href="/pdf-compress" class="hover:text-red-500 transition">PDF Compress</a></li>
+                    <li><a href="/pdf-split" class="hover:text-red-500 transition">PDF Split</a></li>
+                    <li><a href="/pdf-to-jpg" class="hover:text-red-500 transition">PDF to JPG</a></li>
+                    <li><a href="/jpg-to-pdf" class="hover:text-red-500 transition">JPG to PDF</a></li>
+                </ul>
+            </div>
+
+            <!-- Right: Legal -->
+            <div>
+                <h3 class="text-gray-900 dark:text-white font-semibold mb-3">Legal</h3>
+                <ul class="flex flex-col gap-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-red-500 transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-red-500 transition">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-red-500 transition">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom strip -->
+        <div class="mt-10 text-center text-gray-500 dark:text-gray-400 text-sm pt-6 border-t border-gray-200 dark:border-gray-800">
+            © 2025 MyToolsHub — Built with ♥ for productivity.
+        </div>
+
+        <!-- FOOTER AD -->
+        <div class="my-10 flex justify-center">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-REPLACE_WITH_YOUR_ID"
+                data-ad-slot="1231231231"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        </div>
+
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </footer>
+
+    
+    <!-- DARK MODE SCRIPT -->
+    <script>
+        const html = document.documentElement;
+        const toggleBtn = document.getElementById("themeToggle");
+        const toggleIcon = document.getElementById("themeIcon");
+
+        function applyTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                html.classList.add("dark");
+                toggleIcon.classList.replace("fa-moon", "fa-sun");
+            } else {
+                html.classList.remove("dark");
+                toggleIcon.classList.replace("fa-sun", "fa-moon");
+            }
+        }
+
+        applyTheme();
+
+        toggleBtn.addEventListener("click", () => {
+            const isDark = html.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            applyTheme();
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const animatedElements = document.querySelectorAll(".fade-up, .fade-in");
+
+            animatedElements.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.add("animate-show");
+                }, 150 + i * 100); 
+            });
+        });
+    </script>
+
+    <!-- COOKIE BANNER SCRIPT -->
+    <script>
+        const cookieBanner = document.getElementById("cookieBanner");
+        const cookieAccept = document.getElementById("cookieAccept");
+
+        // Show banner only if not accepted
+        if (!localStorage.getItem("cookieConsent")) {
+            cookieBanner.classList.remove("hidden");
+        }
+
+        cookieAccept.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "true");
+            cookieBanner.classList.add("hidden");
+        });
+    </script>
+
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner"
+        class="fixed bottom-5 left-1/2 -translate-x-1/2 w-11/12 md:w-2/3 lg:w-1/2 
+                bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 
+                shadow-xl border border-gray-300 dark:border-gray-700 
+                rounded-xl p-5 flex flex-col md:flex-row items-start md:items-center 
+                justify-between gap-4 z-50 hidden">
+
+        <p class="text-sm leading-relaxed">
+            We use cookies to improve your experience and to show relevant ads when enabled.  
+            By using this site, you agree to our 
+            <a href="#" class="text-red-500 font-semibold">Privacy Policy</a>.
+        </p>
+
+        <button id="cookieAccept" 
+                class="bg-red-500 text-white px-5 py-2 rounded-lg font-semibold 
+                    hover:bg-red-600 transition w-full md:w-auto">
+            Okay
+        </button>
+    </div>
+
+
+</body>
+</html>

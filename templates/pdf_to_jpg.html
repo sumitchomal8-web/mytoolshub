@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="text-center py-10">
+    <div class="flex flex-col items-center gap-3">
+
+        <!-- Icon -->
+        <i class="fa-solid fa-file-image text-purple-500 text-6xl"></i>
+
+        <!-- Title -->
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+            PDF to JPG
+        </h2>
+
+        <!-- Subtitle -->
+        <p class="text-gray-600 dark:text-gray-300 text-lg max-w-xl">
+            Convert every page of your PDF into high-quality JPG images.
+        </p>
+
+        <!-- Accent underline -->
+        <div class="w-20 h-1 bg-purple-500 mt-3 rounded-full"></div>
+    </div>
+</section>
+
+<!-- TOOL CARD -->
+<form method="POST" enctype="multipart/form-data"
+    class="max-w-xl mx-auto bg-white dark:bg-gray-800 p-8
+           rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+        <!-- MAIN TOOL AREA -->
+        <div class="md:col-span-2">
+            <!-- your current tool HTML stays here -->
+        </div>
+
+        <!-- SIDEBAR AD -->
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md h-fit">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-REPLACE_WITH_YOUR_ID"
+                data-ad-slot="9876543210"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+    </div>
+
+
+    <!-- Upload Zone -->
+    <div id="jpgDropZone"
+         class="border-2 border-dashed border-gray-300 dark:border-gray-600
+                rounded-xl p-10 text-center cursor-pointer
+                hover:border-purple-500 transition-all duration-200">
+
+        <i class="fa-solid fa-file-pdf text-purple-500 text-6xl mb-4"></i>
+
+        <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Drag & drop your PDF here
+        </p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            or click to browse
+        </p>
+
+        <input type="file" name="pdf" accept="application/pdf"
+               id="jpgFileInput" class="hidden">
+    </div>
+
+    <!-- DPI Selector -->
+    <label class="block mt-6 text-gray-700 dark:text-gray-300 font-semibold">
+        Image Quality (DPI)
+    </label>
+
+    <select name="dpi"
+            class="w-full mt-2 p-3 rounded-lg bg-gray-100 dark:bg-gray-700
+                   text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+        <option value="100">Standard (100 DPI)</option>
+        <option value="150">High Quality (150 DPI)</option>
+        <option value="200">Very High Quality (200 DPI)</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button
+        class="mt-6 w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold
+               px-6 py-3 rounded-lg shadow transition">
+        Convert to JPG →
+    </button>
+</form>
+
+<!-- JS for Drag & Drop -->
+<script>
+    const jInput = document.getElementById("jpgFileInput");
+    const jZone = document.getElementById("jpgDropZone");
+
+    jZone.addEventListener("click", () => jInput.click());
+
+    jZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        jZone.classList.add("border-purple-500");
+    });
+
+    jZone.addEventListener("dragleave", () => {
+        jZone.classList.remove("border-purple-500");
+    });
+
+    jZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        jZone.classList.remove("border-purple-500");
+        jInput.files = e.dataTransfer.files;
+    });
+</script>
+
+{% endblock %}

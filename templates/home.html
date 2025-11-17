@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="text-center pt-16 pb-20">
+
+    <!-- HEADER AD -->
+    <div class="flex justify-center mt-6 mb-10 fade-up">
+        <ins class="adsbygoogle"
+            style="display:block; text-align:center;"
+            data-ad-client="ca-pub-REPLACE_WITH_YOUR_ID"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    </div>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <!-- Title -->
+    <h1 class="text-5xl font-extrabold text-gray-900 dark:text-white leading-tight fade-up">
+        Simple & Powerful <span class="text-red-500">PDF Tools</span>  
+        for Everyone
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto fade-up">
+        Merge, compress, split and convert your PDFs effortlessly — all in one clean and easy-to-use platform.
+    </p>
+
+    <!-- Red underline -->
+    <div class="w-24 h-1 bg-red-500 mx-auto mt-5 rounded-full fade-in"></div>
+
+    <!-- CTA Buttons -->
+    <div class="mt-8 flex justify-center gap-4 fade-up">
+        <a href="/pdf-merger"
+           class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow transition">
+            Start Merging →
+        </a>
+
+        <a href="#tools"
+           class="bg-gray-200 dark:bg-gray-700 dark:text-gray-200 text-gray-800 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+            View All Tools
+        </a>
+    </div>
+
+</section>
+
+<!-- BENEFIT STRIP -->
+<section class="mt-10 mb-16 fade-up">
+    <div class="flex justify-center gap-10 text-gray-700 dark:text-gray-300 text-lg">
+
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-red-500"></i>
+            Fast Processing
+        </div>
+
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-lock text-red-500"></i>
+            Secure & Private
+        </div>
+
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-hand-holding-hand text-red-500"></i>
+            100% Free to Use
+        </div>
+
+    </div>
+</section>
+
+<!-- TOOL GRID -->
+<section id="tools">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white">
+        All PDF Tools
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto fade-up">
+
+        <!-- MERGER -->
+        <a href="/pdf-merger"
+            class="tool-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center">
+            <i class="fa-solid fa-layer-group text-red-500 text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">PDF Merge</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center mt-2">Combine multiple PDFs into one.</p>
+        </a>
+
+        <!-- COMPRESS -->
+        <a href="/pdf-compress"
+           class="tool-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center">
+            <i class="fa-solid fa-compress text-blue-500 text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">PDF Compress</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center mt-2">Reduce PDF size efficiently.</p>
+        </a>
+
+        <!-- SPLIT -->
+        <a href="/pdf-split"
+           class="tool-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center">
+            <i class="fa-solid fa-scissors text-green-500 text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">PDF Split</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center mt-2">Extract specific pages easily.</p>
+        </a>
+
+        <!-- PDF → JPG -->
+        <a href="/pdf-to-jpg"
+           class="tool-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center">
+            <i class="fa-solid fa-file-image text-purple-500 text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">PDF to JPG</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center mt-2">Convert your PDF pages to JPG.</p>
+        </a>
+
+        <!-- JPG → PDF -->
+        <a href="/jpg-to-pdf"
+           class="tool-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center">
+            <i class="fa-solid fa-file-arrow-down text-orange-500 text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">JPG to PDF</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center mt-2">Turn images into a PDF.</p>
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
+

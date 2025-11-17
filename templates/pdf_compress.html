@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="text-center py-10">
+    <div class="flex flex-col items-center gap-3">
+
+        <!-- Icon -->
+        <i class="fa-solid fa-compress text-blue-500 text-6xl"></i>
+
+        <!-- Title -->
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+            PDF Compress
+        </h2>
+
+        <!-- Subtitle -->
+        <p class="text-gray-600 dark:text-gray-300 text-lg max-w-xl">
+            Reduce your PDF file size while maintaining good quality.
+        </p>
+
+        <!-- Accent underline -->
+        <div class="w-20 h-1 bg-blue-500 mt-3 rounded-full"></div>
+    </div>
+</section>
+
+<!-- TOOL CARD -->
+<form method="POST" enctype="multipart/form-data"
+      class="max-w-xl mx-auto bg-white dark:bg-gray-800 p-8 
+             rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+        <!-- MAIN TOOL AREA -->
+        <div class="md:col-span-2">
+            <!-- your current tool HTML stays here -->
+        </div>
+
+        <!-- SIDEBAR AD -->
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md h-fit">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-REPLACE_WITH_YOUR_ID"
+                data-ad-slot="9876543210"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+    </div>
+
+             
+    <!-- Upload Zone -->
+    <div id="compressDropZone"
+         class="border-2 border-dashed border-gray-300 dark:border-gray-600
+                rounded-xl p-10 text-center cursor-pointer
+                hover:border-blue-500 transition-all duration-200">
+
+        <i class="fa-solid fa-file-pdf text-blue-500 text-6xl mb-4"></i>
+
+        <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Drag & drop your PDF file here
+        </p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+            or click to browse
+        </p>
+
+        <input type="file" name="pdf" accept="application/pdf"
+               id="compressFileInput" class="hidden">
+    </div>
+
+    <!-- Quality Slider -->
+    <label class="block mt-6 text-gray-700 dark:text-gray-300 font-semibold">
+        Compression Quality
+    </label>
+
+    <select name="quality"
+            class="w-full mt-2 p-3 rounded-lg bg-gray-100 dark:bg-gray-700
+                   text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+        <option value="72">High Compression (72 DPI)</option>
+        <option value="100">Medium Compression (100 DPI)</option>
+        <option value="150">Low Compression (150 DPI)</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button
+        class="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold
+               px-6 py-3 rounded-lg shadow transition">
+        Compress PDF →
+    </button>
+</form>
+
+<!-- JS for Drag & Drop -->
+<script>
+    const cInput = document.getElementById("compressFileInput");
+    const cZone = document.getElementById("compressDropZone");
+
+    cZone.addEventListener("click", () => cInput.click());
+
+    cZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        cZone.classList.add("border-blue-500");
+    });
+
+    cZone.addEventListener("dragleave", () => {
+        cZone.classList.remove("border-blue-500");
+    });
+
+    cZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        cZone.classList.remove("border-blue-500");
+        cInput.files = e.dataTransfer.files;
+    });
+</script>
+
+{% endblock %}
